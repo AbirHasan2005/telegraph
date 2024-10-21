@@ -16,9 +16,9 @@ class TelegraphApi:
 
     __slots__ = ('access_token', 'session')
 
-    def __init__(self, access_token=None):
+    def __init__(self, access_token=None, timeout=30):
         self.access_token = access_token
-        self.session = httpx.AsyncClient()
+        self.session = httpx.AsyncClient(timeout=timeout)
 
     async def method(self, method, values=None, path=''):
         values = values.copy() if values is not None else {}
