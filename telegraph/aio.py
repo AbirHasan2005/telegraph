@@ -78,8 +78,8 @@ class Telegraph:
 
     __slots__ = ('_telegraph',)
 
-    def __init__(self, access_token=None):
-        self._telegraph = TelegraphApi(access_token)
+    def __init__(self, access_token=None, timeout=30):
+        self._telegraph = TelegraphApi(access_token, timeout)
 
     def get_access_token(self):
         """Get current access_token"""
